@@ -12,7 +12,7 @@
 	<artifactId>contracting</artifactId>
 	<version>1.0.0</version>
 	<name>contracting</name>
-	<description>Módulo E3 — Contratación de Seleccionados</description>
+	<description>Módulo E4 — Contratación</description>
 
 	<dependencies>
 		<dependency>
@@ -32,6 +32,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
