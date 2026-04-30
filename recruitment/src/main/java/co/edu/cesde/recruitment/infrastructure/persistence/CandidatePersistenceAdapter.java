@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class CandidatePersistenceAdapter implements CandidatePersistencePort {
 
-    @Override
     public void save(Candidate candidate) {
 
     }

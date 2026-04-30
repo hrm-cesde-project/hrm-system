@@ -7,9 +7,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class CandidateUseCase implements CandidateServicePort {
 
-    @Override
-    public void createCandidate(CandidateCmd cmd) {
+	@Override
+	public void createCandidate(CandidateCmd cmd) {
 
-    }
-
+	}
 }
