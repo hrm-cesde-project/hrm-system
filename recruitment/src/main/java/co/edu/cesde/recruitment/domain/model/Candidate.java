@@ -2,8 +2,6 @@ package co.edu.cesde.recruitment.domain.model;
 
 import co.edu.cesde.recruitment.domain.enums.CandidateStatus;
 
-import java.time.LocalDate;
-
 public class Candidate {
 
     private Long id;
