@@ -1,12 +1,16 @@
 package co.edu.cesde.payroll.domain;
 
+import co.edu.cesde.payroll.domain.enums.ConceptPayroll;
+import co.edu.cesde.payroll.domain.enums.TypeConcept;
+
 import java.math.BigDecimal;
 
 public class PayrollDetail {
+
     private long id;
     private long payrollId;
-    private boolean concept;
-    private String typeConcept;
+    private ConceptPayroll concept;
+    private TypeConcept typeConcept;
     private BigDecimal value;
     private Double percentage;
     private String description;
@@ -14,8 +18,14 @@ public class PayrollDetail {
     public PayrollDetail() {
     }
 
-    public PayrollDetail(boolean concept, String description, long id,
-                         long payrollId, Double percentage, String typeConcept, BigDecimal value) {
+    public PayrollDetail(ConceptPayroll concept,
+                         String description,
+                         long id,
+                         long payrollId,
+                         Double percentage,
+                         TypeConcept typeConcept,
+                         BigDecimal value) {
+
         this.concept = concept;
         this.description = description;
         this.id = id;
@@ -25,11 +35,11 @@ public class PayrollDetail {
         this.value = value;
     }
 
-    public boolean isConcept() {
+    public ConceptPayroll getConcept() {
         return concept;
     }
 
-    public void setConcept(boolean concept) {
+    public void setConcept(ConceptPayroll concept) {
         this.concept = concept;
     }
 
@@ -65,11 +75,11 @@ public class PayrollDetail {
         this.percentage = percentage;
     }
 
-    public String getTypeConcept() {
+    public TypeConcept getTypeConcept() {
         return typeConcept;
     }
 
-    public void setTypeConcept(String typeConcept) {
+    public void setTypeConcept(TypeConcept typeConcept) {
         this.typeConcept = typeConcept;
     }
 
@@ -87,7 +97,7 @@ public class PayrollDetail {
                 "concept=" + concept +
                 ", id=" + id +
                 ", payrollId=" + payrollId +
-                ", typeConcept='" + typeConcept + '\'' +
+                ", typeConcept=" + typeConcept +
                 ", value=" + value +
                 ", percentage=" + percentage +
                 ", description='" + description + '\'' +
