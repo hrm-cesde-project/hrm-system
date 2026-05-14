@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03bef14a-e2cd-4f2e-b296-aa848ea0d56a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/domain/enums/PayrollState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/domain/Payroll.java" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/domain/Payroll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/domain/PayrollDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/domain/PayrollDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/application/inputport/PayrollServicePort.java" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/application/inputport/PayrollServicePort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/application/outputport/PayrollPersistencePort.java" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/application/outputport/PayrollPersistencePort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/application/usecase/PayrollUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/application/usecase/PayrollUseCase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
