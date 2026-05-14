@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03bef14a-e2cd-4f2e-b296-aa848ea0d56a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/infrastructure/out/adapter/PayrollController.java" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/infrastructure/out/adapter/PayrollController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/infrastructure/out/entities/PayrollJpaEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/infrastructure/out/entities/PayrollJpaEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/domain/enums/PayrollState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/domain/Payroll.java" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/domain/Payroll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/domain/PayrollDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/domain/PayrollDetail.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,16 +35,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "featureLauraRojasMarin",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true"
   }
-}</component>
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="03bef14a-e2cd-4f2e-b296-aa848ea0d56a" name="Changes" comment="" />
