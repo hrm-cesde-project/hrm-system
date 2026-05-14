@@ -1,29 +1,39 @@
 package co.edu.cesde.payroll.domain;
 
+import co.edu.cesde.payroll.domain.enums.PayrollState;
+
 import java.math.BigDecimal;
 import java.time.YearMonth;
 
 public class Payroll {
+
     private long id;
-    private long employeId;
-    private String nameEmploye;
+    private long employeeId;
+    private String nameEmployee;
     private YearMonth period;
     private BigDecimal baseSalary;
     private BigDecimal totalEarned;
     private BigDecimal totalDeducted;
     private BigDecimal totalToPay;
-    private boolean state;
+    private PayrollState state;
 
     public Payroll() {
     }
 
-    public Payroll(BigDecimal baseSalary, long employeId, long id, String nameEmploye,
-                   YearMonth period, boolean state, BigDecimal totalDeducted,
-                   BigDecimal totalEarned, BigDecimal totalToPay) {
+    public Payroll(BigDecimal baseSalary,
+                   long employeeId,
+                   long id,
+                   String nameEmployee,
+                   YearMonth period,
+                   PayrollState state,
+                   BigDecimal totalDeducted,
+                   BigDecimal totalEarned,
+                   BigDecimal totalToPay) {
+
         this.baseSalary = baseSalary;
-        this.employeId = employeId;
+        this.employeeId = employeeId;
         this.id = id;
-        this.nameEmploye = nameEmploye;
+        this.nameEmployee = nameEmployee;
         this.period = period;
         this.state = state;
         this.totalDeducted = totalDeducted;
@@ -39,12 +49,12 @@ public class Payroll {
         this.baseSalary = baseSalary;
     }
 
-    public long getEmployeId() {
-        return employeId;
+    public long getEmployeeId() {
+        return employeeId;
     }
 
-    public void setEmployeId(long employeId) {
-        this.employeId = employeId;
+    public void setEmployeeId(long employeeId) {
+        this.employeeId = employeeId;
     }
 
     public long getId() {
@@ -55,12 +65,12 @@ public class Payroll {
         this.id = id;
     }
 
-    public String getNameEmploye() {
-        return nameEmploye;
+    public String getNameEmployee() {
+        return nameEmployee;
     }
 
-    public void setNameEmploye(String nameEmploye) {
-        this.nameEmploye = nameEmploye;
+    public void setNameEmployee(String nameEmployee) {
+        this.nameEmployee = nameEmployee;
     }
 
     public YearMonth getPeriod() {
@@ -71,11 +81,11 @@ public class Payroll {
         this.period = period;
     }
 
-    public boolean isState() {
+    public PayrollState getState() {
         return state;
     }
 
-    public void setState(boolean state) {
+    public void setState(PayrollState state) {
         this.state = state;
     }
 
@@ -108,8 +118,8 @@ public class Payroll {
         return "Payroll{" +
                 "baseSalary=" + baseSalary +
                 ", id=" + id +
-                ", employeId=" + employeId +
-                ", nameEmploye='" + nameEmploye + '\'' +
+                ", employeeId=" + employeeId +
+                ", nameEmployee='" + nameEmployee + '\'' +
                 ", period=" + period +
                 ", totalEarned=" + totalEarned +
                 ", totalDeducted=" + totalDeducted +

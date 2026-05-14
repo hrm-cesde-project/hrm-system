@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/contracting/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/payroll/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/performance/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/recruitment/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/retention/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/selection/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shared/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/training/src/main/java" charset="UTF-8" />
+  </component>
+</project>
