@@ -1,23 +1,38 @@
-package co.edu.cesde.training.application.dto;
+package co.edu.cesde.training.infrastructure.persistence;
 
 import co.edu.cesde.training.domain.enums.Modality;
 import co.edu.cesde.training.domain.enums.ProgramType;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
-public class ProgramDTO {
+@Entity
+@Table(name = "training_programs")
+public class ProgramJpaEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
+
     private String description;
+
+    @Enumerated(EnumType.STRING)
     private ProgramType type;
+
+    @Enumerated(EnumType.STRING)
     private Modality modality;
+
     private int durationHours;
+
     private LocalDate startDate;
+
     private LocalDate endDate;
+
     private boolean active;
 
-    public ProgramDTO() {
+    public ProgramJpaEntity() {
     }
 
     public Long getId() {

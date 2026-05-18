@@ -7,7 +7,17 @@
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
-    <option name="workspaceImportForciblyTurnedOn" value="true" />
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/contracting/pom.xml" />
+        <option value="$PROJECT_DIR$/payroll/pom.xml" />
+        <option value="$PROJECT_DIR$/performance/pom.xml" />
+        <option value="$PROJECT_DIR$/recruitment/pom.xml" />
+        <option value="$PROJECT_DIR$/retention/pom.xml" />
+        <option value="$PROJECT_DIR$/selection/pom.xml" />
+        <option value="$PROJECT_DIR$/shared/pom.xml" />
+      </set>
+    </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="temurin-21" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
