@@ -2,6 +2,7 @@ package co.edu.cesde.recruitment.application.port.output;
 
 import co.edu.cesde.recruitment.domain.enums.CandidateStatus;
 import co.edu.cesde.recruitment.domain.model.Candidate;
+
 import java.util.List;
 import java.util.Optional;
 
