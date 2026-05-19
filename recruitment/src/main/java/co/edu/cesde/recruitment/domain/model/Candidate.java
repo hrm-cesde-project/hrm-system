@@ -37,6 +37,21 @@ public class Candidate {
                      String phone,
                      String appliedPosition,
                      LocalDate applicationDate) {
+    public Candidate(String firstName, String lastName, String email,
+                     String phone, String appliedPosition, LocalDate applicationDate) {
+
+        if (firstName == null || firstName.isBlank()) {
+            throw new IllegalArgumentException("First name is required");
+        }
+        if (lastName == null || lastName.isBlank()) {
+            throw new IllegalArgumentException("Last name is required");
+        }
+        if (email == null || email.isBlank()) {
+            throw new IllegalArgumentException("Email is required");
+        }
+        if (appliedPosition == null || appliedPosition.isBlank()) {
+            throw new IllegalArgumentException("Applied position is required");
+        }
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -52,10 +67,27 @@ public class Candidate {
             status = CandidateStatus.INTERVIEW;
         } else if (status == CandidateStatus.INTERVIEW) {
             status = CandidateStatus.HIRED;
+    // =============================
+    // BUSINESS LOGIC
+    // =============================
+
+    public void advanceStatus() {
+        if (this.status == CandidateStatus.APPLIED) {
+            this.status = CandidateStatus.SCREENING;
+        } else if (this.status == CandidateStatus.SCREENING) {
+            this.status = CandidateStatus.INTERVIEW;
+        } else {
+            throw new IllegalStateException("Cannot advance from status: " + this.status);
         }
     }
 
     public void reject(String reason) {
+        if (this.status == CandidateStatus.REJECTED) {
+            throw new IllegalStateException("Candidate is already rejected");
+        }
+        if (reason == null || reason.isBlank()) {
+            throw new IllegalArgumentException("Rejection reason is required");
+        }
         this.status = CandidateStatus.REJECTED;
         this.rejectionReason = reason;
     }
@@ -99,4 +131,23 @@ public class Candidate {
     public void setId(Long id) {
         this.id = id;
     }
+    public boolean isActive() {
+        return this.status != CandidateStatus.REJECTED;
+    }
+
+    // =============================
+    // GETTERS & SETTERS
+    // =============================
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getFirstName() { return firstName; }
+    public String getLastName() { return lastName; }
+    public String getEmail() { return email; }
+    public String getPhone() { return phone; }
+    public CandidateStatus getStatus() { return status; }
+    public String getAppliedPosition() { return appliedPosition; }
+    public LocalDate getApplicationDate() { return applicationDate; }
+    public String getRejectionReason() { return rejectionReason; }
 }

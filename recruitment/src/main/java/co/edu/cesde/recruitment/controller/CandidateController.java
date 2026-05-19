@@ -19,5 +19,6 @@ public class CandidateController {
     public ResponseEntity<Void> createCandidate(@Valid @RequestBody CandidateCmd cmd) {
         candidateServicePort.createCandidate(cmd);
         return ResponseEntity.status(HttpStatus.CREATED).build();
+        return ResponseEntity.ok().build();
     }
 }
