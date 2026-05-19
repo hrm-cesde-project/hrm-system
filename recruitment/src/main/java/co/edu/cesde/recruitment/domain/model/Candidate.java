@@ -16,6 +16,27 @@ public class Candidate {
     private LocalDate applicationDate;
     private String rejectionReason;
 
+    public Candidate(Long id,
+                     String firstName,
+                     String lastName,
+                     String email,
+                     String phone,
+                     CandidateStatus status) {
+
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.status = status;
+    }
+
+    public Candidate(String firstName,
+                     String lastName,
+                     String email,
+                     String phone,
+                     String appliedPosition,
+                     LocalDate applicationDate) {
     public Candidate(String firstName, String lastName, String email,
                      String phone, String appliedPosition, LocalDate applicationDate) {
 
@@ -41,6 +62,11 @@ public class Candidate {
         this.status = CandidateStatus.APPLIED;
     }
 
+    public void advanceStatus() {
+        if (status == CandidateStatus.APPLIED) {
+            status = CandidateStatus.INTERVIEW;
+        } else if (status == CandidateStatus.INTERVIEW) {
+            status = CandidateStatus.HIRED;
     // =============================
     // BUSINESS LOGIC
     // =============================
@@ -66,6 +92,45 @@ public class Candidate {
         this.rejectionReason = reason;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public CandidateStatus getStatus() {
+        return status;
+    }
+
+    public String getAppliedPosition() {
+        return appliedPosition;
+    }
+
+    public LocalDate getApplicationDate() {
+        return applicationDate;
+    }
+
+    public String getRejectionReason() {
+        return rejectionReason;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
     public boolean isActive() {
         return this.status != CandidateStatus.REJECTED;
     }
