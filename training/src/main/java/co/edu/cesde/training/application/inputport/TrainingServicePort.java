@@ -21,4 +21,10 @@ public interface TrainingServicePort {
     List<EnrollmentDTO> listByEmployee(Long employeeId);
 
     byte[] exportCSV();
+
+    CertificationDTO getCertificationById(Long id);
+
+    List<CertificationDTO> getCertifications();
+
+    List<EnrollmentDTO> getAllEnrollments();
 }

@@ -25,4 +25,10 @@ public interface TrainingPersistencePort {
     List<TrainingProgram> findAllPrograms();
 
     List<ProgramDTO> getPrograms();
+
+    Optional<Certification> findCertificationById(Long id);
+
+    List<Certification> getCertifications();
+
+    List<Enrollment> findAllEnrollments();
 }

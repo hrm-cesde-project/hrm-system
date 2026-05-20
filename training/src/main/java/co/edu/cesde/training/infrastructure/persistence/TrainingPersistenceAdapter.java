@@ -16,40 +16,28 @@ import java.util.Optional;
 
 @Component
 @Transactional
-public class TrainingPersistenceAdapter
-        implements TrainingPersistencePort {
+public class TrainingPersistenceAdapter implements TrainingPersistencePort {
 
     private final TrainingMapper mapper;
 
     @PersistenceContext
     private EntityManager entityManager;
 
-    public TrainingPersistenceAdapter(
-            TrainingMapper mapper
-    ) {
+    public TrainingPersistenceAdapter(TrainingMapper mapper) {
         this.mapper = mapper;
     }
 
-    /*
-    ======================================
-    PROGRAMS
-    ======================================
-    */
+    // =========================
+    // PROGRAMS
+    // =========================
 
     @Override
-    public TrainingProgram saveProgram(
-            TrainingProgram program
-    ) {
-
-        ProgramJpaEntity entity =
-                mapper.toEntity(program);
+    public TrainingProgram saveProgram(TrainingProgram program) {
+        ProgramJpaEntity entity = mapper.toEntity(program);
 
         if (entity.getId() == null) {
-
             entityManager.persist(entity);
-
         } else {
-
             entity = entityManager.merge(entity);
         }
 
@@ -57,28 +45,17 @@ public class TrainingPersistenceAdapter
     }
 
     @Override
-    public Optional<TrainingProgram> findProgramById(
-            Long id
-    ) {
-
+    public Optional<TrainingProgram> findProgramById(Long id) {
         ProgramJpaEntity entity =
-                entityManager.find(
-                        ProgramJpaEntity.class,
-                        id
-                );
+                entityManager.find(ProgramJpaEntity.class, id);
 
-        if (entity == null) {
-            return Optional.empty();
-        }
-
-        return Optional.of(
-                mapper.toDomain(entity)
-        );
+        return entity == null
+                ? Optional.empty()
+                : Optional.of(mapper.toDomain(entity));
     }
 
     @Override
     public List<TrainingProgram> findActivePrograms() {
-
         return entityManager.createQuery(
                         "SELECT p FROM ProgramJpaEntity p WHERE p.active = true",
                         ProgramJpaEntity.class
@@ -91,7 +68,6 @@ public class TrainingPersistenceAdapter
 
     @Override
     public List<TrainingProgram> findAllPrograms() {
-
         return entityManager.createQuery(
                         "SELECT p FROM ProgramJpaEntity p",
                         ProgramJpaEntity.class
@@ -104,7 +80,6 @@ public class TrainingPersistenceAdapter
 
     @Override
     public List<ProgramDTO> getPrograms() {
-
         return entityManager.createQuery(
                         "SELECT p FROM ProgramJpaEntity p",
                         ProgramJpaEntity.class
@@ -116,26 +91,17 @@ public class TrainingPersistenceAdapter
                 .toList();
     }
 
-    /*
-    ======================================
-    ENROLLMENTS
-    ======================================
-    */
+    // =========================
+    // ENROLLMENTS (FIX HERE 🔥)
+    // =========================
 
     @Override
-    public Enrollment saveEnrollment(
-            Enrollment enrollment
-    ) {
-
-        EnrollmentJpaEntity entity =
-                mapper.toEntity(enrollment);
+    public Enrollment saveEnrollment(Enrollment enrollment) {
+        EnrollmentJpaEntity entity = mapper.toEntity(enrollment);
 
         if (entity.getId() == null) {
-
             entityManager.persist(entity);
-
         } else {
-
             entity = entityManager.merge(entity);
         }
 
@@ -143,30 +109,17 @@ public class TrainingPersistenceAdapter
     }
 
     @Override
-    public Optional<Enrollment> findEnrollmentById(
-            Long id
-    ) {
-
+    public Optional<Enrollment> findEnrollmentById(Long id) {
         EnrollmentJpaEntity entity =
-                entityManager.find(
-                        EnrollmentJpaEntity.class,
-                        id
-                );
+                entityManager.find(EnrollmentJpaEntity.class, id);
 
-        if (entity == null) {
-            return Optional.empty();
-        }
-
-        return Optional.of(
-                mapper.toDomain(entity)
-        );
+        return entity == null
+                ? Optional.empty()
+                : Optional.of(mapper.toDomain(entity));
     }
 
     @Override
-    public List<Enrollment> findByEmployeeId(
-            Long id
-    ) {
-
+    public List<Enrollment> findByEmployeeId(Long id) {
         return entityManager.createQuery(
                         "SELECT e FROM EnrollmentJpaEntity e WHERE e.employeeId = :employeeId",
                         EnrollmentJpaEntity.class
@@ -178,29 +131,54 @@ public class TrainingPersistenceAdapter
                 .toList();
     }
 
-    /*
-    ======================================
-    CERTIFICATIONS
-    ======================================
-    */
+    @Override
+    public List<Enrollment> findAllEnrollments() {
+        return entityManager.createQuery(
+                        "SELECT e FROM EnrollmentJpaEntity e",
+                        EnrollmentJpaEntity.class
+                )
+                .getResultList()
+                .stream()
+                .map(mapper::toDomain)
+                .toList();
+    }
+
+    // =========================
+    // CERTIFICATIONS
+    // =========================
 
     @Override
-    public Certification saveCertification(
-            Certification certification
-    ) {
-
-        CertificationJpaEntity entity =
-                mapper.toEntity(certification);
+    public Certification saveCertification(Certification certification) {
+        CertificationJpaEntity entity = mapper.toEntity(certification);
 
         if (entity.getId() == null) {
-
             entityManager.persist(entity);
-
         } else {
-
             entity = entityManager.merge(entity);
         }
 
         return mapper.toDomain(entity);
+    }
+
+    @Override
+    public List<Certification> getCertifications() {
+        return entityManager.createQuery(
+                        "SELECT c FROM CertificationJpaEntity c",
+                        CertificationJpaEntity.class
+                )
+                .getResultList()
+                .stream()
+                .map(mapper::toDomain)
+                .toList();
+    }
+
+    @Override
+    public Optional<Certification> findCertificationById(Long id) {
+        CertificationJpaEntity entity =
+                entityManager.find(CertificationJpaEntity.class, id);
+
+        return entity == null
+                ? Optional.empty()
+                : Optional.of(mapper.toDomain(entity));
     }
 }

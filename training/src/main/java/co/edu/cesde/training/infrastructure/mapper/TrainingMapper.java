@@ -34,11 +34,17 @@ public interface TrainingMapper {
     =========================
     */
 
-    EnrollmentDTO toEnrollmentDTO(Enrollment enrollment);
-
+    // ENTITY → DOMAIN
     Enrollment toDomain(EnrollmentJpaEntity entity);
 
+    // DOMAIN → ENTITY
     EnrollmentJpaEntity toEntity(Enrollment domain);
+
+    // DTO → DOMAIN  (ESTO ES CLAVE)
+    Enrollment toDomain(EnrollmentDTO dto);
+
+    // DOMAIN → DTO
+    EnrollmentDTO toEnrollmentDTO(Enrollment domain);
 
     /*
     =========================
@@ -46,15 +52,9 @@ public interface TrainingMapper {
     =========================
     */
 
-    CertificationDTO toCertificationDTO(
-            Certification certification
-    );
+    CertificationDTO toCertificationDTO(Certification certification);
 
-    Certification toDomain(
-            CertificationJpaEntity entity
-    );
+    Certification toDomain(CertificationJpaEntity entity);
 
-    CertificationJpaEntity toEntity(
-            Certification domain
-    );
+    CertificationJpaEntity toEntity(Certification domain);
 }

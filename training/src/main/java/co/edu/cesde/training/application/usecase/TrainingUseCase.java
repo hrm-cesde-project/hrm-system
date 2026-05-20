@@ -36,6 +36,10 @@ public class TrainingUseCase implements TrainingServicePort {
         this.mapper = mapper;
     }
 
+    // =========================
+    // PROGRAMS
+    // =========================
+
     @Override
     public List<ProgramDTO> getPrograms() {
         return persistencePort.getPrograms();
@@ -45,19 +49,20 @@ public class TrainingUseCase implements TrainingServicePort {
     public ProgramDTO createProgram(ProgramDTO dto) {
 
         if (dto.getEndDate().isBefore(dto.getStartDate())) {
-            throw new RuntimeException(
-                    "End date must be after start date"
-            );
+            throw new RuntimeException("End date must be after start date");
         }
 
         TrainingProgram program = mapper.toDomain(dto);
-
         program.setActive(true);
 
         return mapper.toDTO(
                 persistencePort.saveProgram(program)
         );
     }
+
+    // =========================
+    // ENROLLMENTS
+    // =========================
 
     @Override
     public EnrollmentDTO enroll(EnrollmentCmd cmd) {
@@ -70,24 +75,17 @@ public class TrainingUseCase implements TrainingServicePort {
 
         TrainingProgram program = persistencePort
                 .findProgramById(cmd.getProgramId())
-                .orElseThrow(() ->
-                        new RuntimeException("Program not found")
-                );
+                .orElseThrow(() -> new RuntimeException("Program not found"));
 
         if (!program.isActive()) {
-            throw new RuntimeException(
-                    "Program inactive"
-            );
+            throw new RuntimeException("Program inactive");
         }
 
         Enrollment enrollment = new Enrollment();
-
         enrollment.setEmployeeId(cmd.getEmployeeId());
         enrollment.setEmployeeName(cmd.getEmployeeName());
         enrollment.setProgramId(cmd.getProgramId());
-        enrollment.setEnrollmentStatus(
-                EnrollmentStatus.ENROLLED
-        );
+        enrollment.setEnrollmentStatus(EnrollmentStatus.ENROLLED);
         enrollment.setRegistrationDate(LocalDate.now());
         enrollment.setProgressPercentage(0.0);
 
@@ -97,34 +95,44 @@ public class TrainingUseCase implements TrainingServicePort {
     }
 
     @Override
+    public List<EnrollmentDTO> getAllEnrollments() {
+        return persistencePort.findAllEnrollments()
+                .stream()
+                .map(mapper::toEnrollmentDTO)
+                .toList();
+    }
+
+    @Override
+    public List<EnrollmentDTO> listByEmployee(Long employeeId) {
+        return persistencePort.findByEmployeeId(employeeId)
+                .stream()
+                .map(mapper::toEnrollmentDTO)
+                .toList();
+    }
+
+    // =========================
+    // PROGRESS
+    // =========================
+
+    @Override
     public void registerProgress(Long id, Double percentage) {
 
         Enrollment enrollment = persistencePort
                 .findEnrollmentById(id)
-                .orElseThrow(() ->
-                        new RuntimeException(
-                                "Enrollment not found"
-                        )
-                );
+                .orElseThrow(() -> new RuntimeException("Enrollment not found"));
 
         if (percentage < 0 || percentage > 100) {
-            throw new RuntimeException(
-                    "Invalid percentage"
-            );
+            throw new RuntimeException("Invalid percentage");
         }
 
         if (percentage < enrollment.getProgressPercentage()) {
-            throw new RuntimeException(
-                    "Progress cannot decrease"
-            );
+            throw new RuntimeException("Progress cannot decrease");
         }
 
         enrollment.setProgressPercentage(percentage);
 
         if (percentage > 0) {
-            enrollment.setEnrollmentStatus(
-                    EnrollmentStatus.IN_PROGRESS
-            );
+            enrollment.setEnrollmentStatus(EnrollmentStatus.IN_PROGRESS);
         }
 
         persistencePort.saveEnrollment(enrollment);
@@ -135,86 +143,63 @@ public class TrainingUseCase implements TrainingServicePort {
 
         Enrollment enrollment = persistencePort
                 .findEnrollmentById(id)
-                .orElseThrow(() ->
-                        new RuntimeException(
-                                "Enrollment not found"
-                        )
-                );
+                .orElseThrow(() -> new RuntimeException("Enrollment not found"));
 
         if (grade < 0 || grade > 5) {
-            throw new RuntimeException(
-                    "Invalid grade"
-            );
+            throw new RuntimeException("Invalid grade");
         }
 
         enrollment.setFinalGrade(grade);
 
         if (grade >= 3.0) {
 
-            enrollment.setEnrollmentStatus(
-                    EnrollmentStatus.COMPLETED
-            );
+            enrollment.setEnrollmentStatus(EnrollmentStatus.COMPLETED);
 
             TrainingProgram program = persistencePort
-                    .findProgramById(
-                            enrollment.getProgramId()
-                    )
-                    .orElseThrow();
+                    .findProgramById(enrollment.getProgramId())
+                    .orElseThrow(() -> new RuntimeException("Program not found"));
 
-            Certification certification =
-                    new Certification();
+            Certification certification = new Certification();
+            certification.setEnrollmentId(enrollment.getId());
+            certification.setEmployeeId(enrollment.getEmployeeId());
+            certification.setProgramName(program.getName());
+            certification.setIssueDate(LocalDate.now());
+            certification.setVerificationCode(UUID.randomUUID().toString());
 
-            certification.setEnrollmentId(
-                    enrollment.getId()
-            );
-
-            certification.setEmployeeId(
-                    enrollment.getEmployeeId()
-            );
-
-            certification.setProgramName(
-                    program.getName()
-            );
-
-            certification.setIssueDate(
-                    LocalDate.now()
-            );
-
-            certification.setVerificationCode(
-                    UUID.randomUUID().toString()
-            );
-
-            persistencePort.saveCertification(
-                    certification
-            );
+            persistencePort.saveCertification(certification);
 
         } else {
-
-            enrollment.setEnrollmentStatus(
-                    EnrollmentStatus.FAILED
-            );
+            enrollment.setEnrollmentStatus(EnrollmentStatus.FAILED);
         }
 
         persistencePort.saveEnrollment(enrollment);
     }
 
+    // =========================
+    // CERTIFICATIONS
+    // =========================
+
     @Override
-    public CertificationDTO issueCertification(
-            Long enrollmentId
-    ) {
-        return null;
+    public List<CertificationDTO> getCertifications() {
+        return persistencePort.getCertifications()
+                .stream()
+                .map(mapper::toCertificationDTO)
+                .toList();
     }
 
     @Override
-    public List<EnrollmentDTO> listByEmployee(
-            Long employeeId
-    ) {
+    public CertificationDTO getCertificationById(Long id) {
 
-        return persistencePort
-                .findByEmployeeId(employeeId)
-                .stream()
-                .map(mapper::toEnrollmentDTO)
-                .collect(Collectors.toList());
+        Certification certification = persistencePort
+                .findCertificationById(id)
+                .orElseThrow(() -> new RuntimeException("Certification not found"));
+
+        return mapper.toCertificationDTO(certification);
+    }
+
+    @Override
+    public CertificationDTO issueCertification(Long enrollmentId) {
+        return null; // si no lo usas, lo dejamos así
     }
 
     @Override
