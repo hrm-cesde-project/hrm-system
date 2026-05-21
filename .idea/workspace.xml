@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03bef14a-e2cd-4f2e-b296-aa848ea0d56a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/application/dto/PayrollDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/application/dto/PayrollDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/application/inputport/PayrollServicePort.java" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/application/inputport/PayrollServicePort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/application/outputport/PayrollPersistencePort.java" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/application/outputport/PayrollPersistencePort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/application/usecase/PayrollUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/application/usecase/PayrollUseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/domain/Payroll.java" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/domain/model/Payroll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/domain/PayrollDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/domain/model/PayrollDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/domain/enums/ConceptPayroll.java" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/domain/enums/ConceptPayroll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/domain/enums/PayrollState.java" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/domain/enums/PayrollState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/domain/enums/TypeConcept.java" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/src/main/java/co/edu/cesde/payroll/domain/enums/TypeConcept.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,16 +42,42 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.PayrollApplication.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "featureLauraRojasMarin",
+    "git-widget-placeholder": "payroll",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="co.edu.cesde.payroll.application.dto" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="PayrollApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="co.edu.cesde.payroll.PayrollApplication" />
+      <module name="payroll" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="co.edu.cesde.payroll.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.PayrollApplication" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
