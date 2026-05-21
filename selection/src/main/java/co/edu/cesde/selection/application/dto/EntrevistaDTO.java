@@ -2,15 +2,25 @@ package co.edu.cesde.selection.application.dto;
 
 import java.time.LocalDateTime;
 
-public class EntrevistaCmd {
+public class EntrevistaDTO {
 
+    private Long id;
     private Long procesoId;
     private String tipo;
     private String entrevistador;
     private LocalDateTime fecha;
     private Double puntaje;
     private String observaciones;
+    private Boolean aprobada;
 
+
+        public Long getId() {
+            return id;
+        }
+
+        public void setId(Long id) {
+            this.id = id;
+        }
 
         public Long getProcesoId() {
             return procesoId;
@@ -58,6 +68,14 @@ public class EntrevistaCmd {
 
         public void setObservaciones(String observaciones) {
             this.observaciones = observaciones;
+        }
+
+        public Boolean getAprobada() {
+            return aprobada;
+        }
+
+        public void setAprobada(Boolean aprobada) {
+            this.aprobada = aprobada;
         }
     }
 
