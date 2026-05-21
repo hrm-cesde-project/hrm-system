@@ -1,4 +1,4 @@
-package co.edu.cesde.payroll.domain;
+package co.edu.cesde.payroll.domain.model;
 
 import co.edu.cesde.payroll.domain.enums.ConceptPayroll;
 import co.edu.cesde.payroll.domain.enums.TypeConcept;

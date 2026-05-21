@@ -1,4 +1,4 @@
-package co.edu.cesde.payroll.domain;
+package co.edu.cesde.payroll.domain.model;
 
 import co.edu.cesde.payroll.domain.enums.PayrollState;
 
@@ -15,46 +15,23 @@ public class Payroll {
     private BigDecimal totalEarned;
     private BigDecimal totalDeducted;
     private BigDecimal totalToPay;
-    private PayrollState state;
+    private PayrollState type;
 
     public Payroll() {
     }
 
-    public Payroll(BigDecimal baseSalary,
-                   long employeeId,
-                   long id,
-                   String nameEmployee,
-                   YearMonth period,
-                   PayrollState state,
-                   BigDecimal totalDeducted,
-                   BigDecimal totalEarned,
-                   BigDecimal totalToPay) {
-
-        this.baseSalary = baseSalary;
-        this.employeeId = employeeId;
+    public Payroll(long id, long employeeId, String nameEmployee, YearMonth period,
+                   BigDecimal baseSalary, BigDecimal totalEarned, BigDecimal totalDeducted,
+                   BigDecimal totalToPay, PayrollState type) {
         this.id = id;
+        this.employeeId = employeeId;
         this.nameEmployee = nameEmployee;
         this.period = period;
-        this.state = state;
-        this.totalDeducted = totalDeducted;
-        this.totalEarned = totalEarned;
-        this.totalToPay = totalToPay;
-    }
-
-    public BigDecimal getBaseSalary() {
-        return baseSalary;
-    }
-
-    public void setBaseSalary(BigDecimal baseSalary) {
         this.baseSalary = baseSalary;
-    }
-
-    public long getEmployeeId() {
-        return employeeId;
-    }
-
-    public void setEmployeeId(long employeeId) {
-        this.employeeId = employeeId;
+        this.totalEarned = totalEarned;
+        this.totalDeducted = totalDeducted;
+        this.totalToPay = totalToPay;
+        this.type = type;
     }
 
     public long getId() {
@@ -63,6 +40,14 @@ public class Payroll {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public long getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(long employeeId) {
+        this.employeeId = employeeId;
     }
 
     public String getNameEmployee() {
@@ -81,20 +66,12 @@ public class Payroll {
         this.period = period;
     }
 
-    public PayrollState getState() {
-        return state;
+    public BigDecimal getBaseSalary() {
+        return baseSalary;
     }
 
-    public void setState(PayrollState state) {
-        this.state = state;
-    }
-
-    public BigDecimal getTotalDeducted() {
-        return totalDeducted;
-    }
-
-    public void setTotalDeducted(BigDecimal totalDeducted) {
-        this.totalDeducted = totalDeducted;
+    public void setBaseSalary(BigDecimal baseSalary) {
+        this.baseSalary = baseSalary;
     }
 
     public BigDecimal getTotalEarned() {
@@ -105,6 +82,14 @@ public class Payroll {
         this.totalEarned = totalEarned;
     }
 
+    public BigDecimal getTotalDeducted() {
+        return totalDeducted;
+    }
+
+    public void setTotalDeducted(BigDecimal totalDeducted) {
+        this.totalDeducted = totalDeducted;
+    }
+
     public BigDecimal getTotalToPay() {
         return totalToPay;
     }
@@ -113,18 +98,26 @@ public class Payroll {
         this.totalToPay = totalToPay;
     }
 
+    public PayrollState getType() {
+        return type;
+    }
+
+    public void setType(PayrollState type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
         return "Payroll{" +
-                "baseSalary=" + baseSalary +
-                ", id=" + id +
+                "id=" + id +
                 ", employeeId=" + employeeId +
                 ", nameEmployee='" + nameEmployee + '\'' +
                 ", period=" + period +
+                ", baseSalary=" + baseSalary +
                 ", totalEarned=" + totalEarned +
                 ", totalDeducted=" + totalDeducted +
                 ", totalToPay=" + totalToPay +
-                ", state=" + state +
+                ", type=" + type +
                 '}';
     }
 }
