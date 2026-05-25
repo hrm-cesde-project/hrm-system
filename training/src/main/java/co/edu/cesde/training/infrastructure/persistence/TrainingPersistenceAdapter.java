@@ -45,6 +45,18 @@ public class TrainingPersistenceAdapter implements TrainingPersistencePort {
     }
 
     @Override
+    public void deleteProgram(Long id) {
+        ProgramJpaEntity entity =
+                entityManager.find(ProgramJpaEntity.class, id);
+
+        if (entity == null) {
+            throw new RuntimeException("Program not found");
+        }
+
+        entityManager.remove(entity);
+    }
+
+    @Override
     public Optional<TrainingProgram> findProgramById(Long id) {
         ProgramJpaEntity entity =
                 entityManager.find(ProgramJpaEntity.class, id);

@@ -20,14 +20,9 @@
   </properties>
 
   <modules>
-    <module>shared</module>
-    <module>recruitment</module>
-    <module>selection</module>
+
     <module>training</module>
-    <module>contracting</module>
-    <module>payroll</module>
-    <module>retention</module>
-    <module>performance</module>
+
   </modules>
 
   <dependencies>

@@ -60,6 +60,37 @@ public class TrainingUseCase implements TrainingServicePort {
         );
     }
 
+    @Override
+    public ProgramDTO updateProgram(Long id, ProgramDTO dto) {
+
+        TrainingProgram existing = persistencePort
+                .findProgramById(id)
+                .orElseThrow(() -> new RuntimeException("Program not found"));
+
+        if (dto.getEndDate() != null && dto.getStartDate() != null
+                && dto.getEndDate().isBefore(dto.getStartDate())) {
+            throw new RuntimeException("End date must be after start date");
+        }
+
+        existing.setName(dto.getName());
+        existing.setDescription(dto.getDescription());
+        existing.setType(dto.getType());
+        existing.setModality(dto.getModality());
+        existing.setDurationHours(dto.getDurationHours());
+        existing.setStartDate(dto.getStartDate());
+        existing.setEndDate(dto.getEndDate());
+        existing.setActive(dto.isActive());
+
+        return mapper.toDTO(
+                persistencePort.saveProgram(existing)
+        );
+    }
+
+    @Override
+    public void deleteProgram(Long id) {
+        persistencePort.deleteProgram(id);
+    }
+
     // =========================
     // ENROLLMENTS
     // =========================

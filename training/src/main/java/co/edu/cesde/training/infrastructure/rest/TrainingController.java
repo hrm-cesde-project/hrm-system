@@ -36,6 +36,24 @@ public class TrainingController {
         );
     }
 
+    @PutMapping("/programs/{id}")
+    public ResponseEntity<ProgramDTO> updateProgram(
+            @PathVariable Long id,
+            @RequestBody ProgramDTO dto
+    ) {
+        return ResponseEntity.ok(
+                servicePort.updateProgram(id, dto)
+        );
+    }
+
+    @DeleteMapping("/programs/{id}")
+    public ResponseEntity<Void> deleteProgram(
+            @PathVariable Long id
+    ) {
+        servicePort.deleteProgram(id);
+        return ResponseEntity.noContent().build();
+    }
+
     @PostMapping("/enrollments")
     public ResponseEntity<EnrollmentDTO> enroll(
             @RequestBody EnrollmentCmd cmd

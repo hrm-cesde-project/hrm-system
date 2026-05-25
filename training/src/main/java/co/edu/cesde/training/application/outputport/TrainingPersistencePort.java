@@ -10,6 +10,8 @@ public interface TrainingPersistencePort {
 
     TrainingProgram saveProgram(TrainingProgram program);
 
+    void deleteProgram(Long id);
+
     Enrollment saveEnrollment(Enrollment enrollment);
 
     Certification saveCertification(Certification certification);

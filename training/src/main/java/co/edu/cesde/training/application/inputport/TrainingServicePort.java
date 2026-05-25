@@ -8,6 +8,10 @@ public interface TrainingServicePort {
 
     ProgramDTO createProgram(ProgramDTO dto);
 
+    ProgramDTO updateProgram(Long id, ProgramDTO dto);
+
+    void deleteProgram(Long id);
+
     List<ProgramDTO> getPrograms();
 
     EnrollmentDTO enroll(EnrollmentCmd cmd);
