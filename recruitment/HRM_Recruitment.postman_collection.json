@@ -1,0 +1,65 @@
+{
+  "info": {
+    "name": "HRM - Recruitment Module",
+    "description": "Colección básica para probar el módulo de Reclutamiento (recruitment) del HRM System.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Candidates",
+      "item": [
+        {
+          "name": "✅ Crear candidato (válido)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Carlos\",\n  \"lastName\": \"Gómez\",\n  \"email\": \"carlos.gomez@email.com\",\n  \"phone\": \"3001234567\",\n  \"appliedPosition\": \"Desarrollador Backend\",\n  \"applicationDate\": \"2026-05-24\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/recruitment/candidates",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "recruitment", "candidates"]
+            },
+            "description": "Crea un nuevo candidato con todos los campos requeridos."
+          }
+        },
+        {
+          "name": "❌ Crear candidato (campos faltantes)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Ana\",\n  \"email\": \"email-invalido\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/recruitment/candidates",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "recruitment", "candidates"]
+            },
+            "description": "Debe retornar 400 Bad Request por validación fallida (falta lastName, appliedPosition, applicationDate y email inválido)."
+          }
+        }
+      ]
+    }
+  ]
+}

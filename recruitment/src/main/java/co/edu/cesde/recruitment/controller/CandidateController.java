@@ -15,8 +15,8 @@ public class CandidateController {
     private final CandidateServicePort candidateServicePort;
 
     @PostMapping
-    public ResponseEntity<Void> createCandidate(@Valid @RequestBody CandidateCmd cmd) {
-        candidateServicePort.createCandidate(cmd);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<co.edu.cesde.recruitment.application.dto.CandidateDto> createCandidate(@Valid @RequestBody CandidateCmd cmd) {
+        co.edu.cesde.recruitment.application.dto.CandidateDto dto = candidateServicePort.createCandidate(cmd);
+        return ResponseEntity.status(org.springframework.http.HttpStatus.CREATED).body(dto);
     }
 }

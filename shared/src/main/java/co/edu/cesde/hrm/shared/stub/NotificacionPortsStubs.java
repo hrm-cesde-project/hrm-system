@@ -1,7 +1,10 @@
 package co.edu.cesde.hrm.shared.stub;
 
 import co.edu.cesde.hrm.shared.dto.EmpleadoActivoDTO;
-import co.edu.cesde.hrm.shared.port.NotificacionPorts.*;
+import co.edu.cesde.hrm.shared.port.NominaNotifPort;
+import co.edu.cesde.hrm.shared.port.FormacionNotifPort;
+import co.edu.cesde.hrm.shared.port.RetencionNotifPort;
+import co.edu.cesde.hrm.shared.port.EvaluacionNotifPort;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
