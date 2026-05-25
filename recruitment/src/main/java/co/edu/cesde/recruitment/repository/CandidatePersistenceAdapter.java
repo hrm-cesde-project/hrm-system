@@ -39,6 +39,11 @@ public class CandidatePersistenceAdapter implements CandidatePersistencePort {
     }
 
     @Override
+    public void deleteById(Long id) {
+        jpaRepository.deleteById(id);
+    }
+
+    @Override
     public Candidate save(Candidate candidate) {
         CandidateEntity entity = toEntity(candidate);
         CandidateEntity saved = jpaRepository.save(entity);

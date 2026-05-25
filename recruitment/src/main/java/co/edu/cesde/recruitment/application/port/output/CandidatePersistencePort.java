@@ -14,4 +14,6 @@ public interface CandidatePersistencePort {
     List<Candidate> findByStatus(CandidateStatus status);
 
     Candidate save(Candidate candidate);
+
+    void deleteById(Long id);
 }
