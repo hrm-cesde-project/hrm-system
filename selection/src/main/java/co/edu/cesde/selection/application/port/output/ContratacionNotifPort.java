@@ -1,9 +1,8 @@
-
 package co.edu.cesde.selection.application.port.output;
 
-    public interface ContratacionNotifPort {
+import co.edu.cesde.selection.domain.ProcesoSeleccion;
 
-     public void notificarAprobado(Long aspiranteId, String cargo);
-
-    }
-
+public interface ContratacionNotifPort {
+    // Este nombre y este parámetro (ProcesoSeleccion) son la clave para que todo conecte
+    void notificarCandidatoAprobado(ProcesoSeleccion proceso);
+}
