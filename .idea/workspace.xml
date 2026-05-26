@@ -38,10 +38,17 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+<<<<<<< HEAD
+    "git-widget-placeholder": "feature/e2-selection-infrastructure",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.selected.package.tslint": "(autodetect)"
+=======
     "git-widget-placeholder": "payroll",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "settings.editor.selected.configurable": "application.passwordSafe"
+>>>>>>> develop
   }
 }]]></component>
   <component name="RecentsManager">
