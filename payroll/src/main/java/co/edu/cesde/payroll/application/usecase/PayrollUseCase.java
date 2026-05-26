@@ -2,7 +2,7 @@ package co.edu.cesde.payroll.application.usecase;
 
 import co.edu.cesde.payroll.application.inputport.PayrollServicePort;
 import co.edu.cesde.payroll.application.outputport.PayrollPersistencePort;
-import co.edu.cesde.payroll.domain.Payroll;
+import co.edu.cesde.payroll.domain.model.Payroll;
 
 public class PayrollUseCase implements PayrollServicePort {
 
@@ -15,5 +15,10 @@ public class PayrollUseCase implements PayrollServicePort {
     @Override
     public Payroll createPayroll(Payroll payroll) {
         return payrollPersistencePort.save(payroll);
+    }
+
+    @Override
+    public void anular(long payrollId) {
+
     }
 }
