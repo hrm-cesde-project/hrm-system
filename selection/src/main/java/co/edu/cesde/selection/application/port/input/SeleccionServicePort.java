@@ -15,7 +15,7 @@ public interface SeleccionServicePort {
 
         public void rechazar(Long procesoId, String motivo);
 
-         ProcesoDTO buscarPorId(Long id);
+        ProcesoDTO buscarPorId(Long id);
 
         List<ProcesoDTO> listarAprobados();
 
