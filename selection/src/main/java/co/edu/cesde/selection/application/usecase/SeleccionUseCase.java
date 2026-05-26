@@ -5,18 +5,14 @@ import co.edu.cesde.selection.application.dto.ProcesoDTO;
 import co.edu.cesde.selection.application.port.input.SeleccionServicePort;
 import co.edu.cesde.selection.application.port.output.ContratacionNotifPort;
 import co.edu.cesde.selection.application.port.output.SelecionPersistencePort;
-// NOTA: Aquí tu compañero debe importar el DTO de la carpeta shared del Equipo 1
 import co.edu.cesde.hrm.shared.dto.AspirantePreseleccionadoDTO;
+import co.edu.cesde.selection.domain.ProcesoSeleccion; // <-- Importamos la clase de Dominio
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-
 public class SeleccionUseCase implements SeleccionServicePort {
-
-
 
     private final SelecionPersistencePort persistencePort;
     private final ContratacionNotifPort notifPort;
@@ -28,28 +24,26 @@ public class SeleccionUseCase implements SeleccionServicePort {
 
     @Override
     public ProcesoDTO iniciarProceso(AspirantePreseleccionadoDTO dto) {
-        // Lógica de la HU-E2-01:
-        // 1. Validar que no tenga un proceso activo (usando persistencePort)
-        // 2. Crear el objeto de Dominio (ProcesoSeleccion) con los datos del dto
-        // 3. Guardarlo en la base de datos
-        // 4. Retornar el ProcesoDTO
         return null;
     }
 
     @Override
     public void registrarEntrevista(EntrevistaCmd cmd) {
-        // Lógica de la HU-E2-02
     }
 
     @Override
     public void aprobar(Long procesoId) {
-        // Lógica de la HU-E2-04: Al aprobar, llamamos al puerto de salida:
-        // notifPort.notificarAprobado(aspiranteId, cargo);
+        // Lógica de la HU-E2-04:
+
+        // 1. Creamos el objeto (Más adelante lo buscarás en la BD usando persistencePort)
+        ProcesoSeleccion proceso = new ProcesoSeleccion();
+
+        // 2. Llamamos al puerto usando el nombre exacto que definimos en la interfaz
+        notifPort.notificarCandidatoAprobado(proceso);
     }
 
     @Override
     public void rechazar(Long procesoId, String motivo) {
-        // Lógica de la HU-E2-04
     }
 
     @Override
