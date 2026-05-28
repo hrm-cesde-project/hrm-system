@@ -1,0 +1,148 @@
+{
+  "info": {
+    "name": "HRM - Recruitment Module",
+    "description": "Full collection for the Recruitment module (E1) of the HRM System.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Candidates",
+      "item": [
+        {
+          "name": "POST - Create Candidate",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Carlos\",\n  \"lastName\": \"Gómez\",\n  \"email\": \"carlos.gomez@email.com\",\n  \"phone\": \"3001234567\",\n  \"appliedPosition\": \"Backend Developer\",\n  \"applicationDate\": \"2026-05-24\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/recruitment/candidates",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "recruitment", "candidates"]
+            }
+          }
+        },
+        {
+          "name": "POST - Create Candidate (Invalid)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Ana\",\n  \"email\": \"invalid-email\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/recruitment/candidates",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "recruitment", "candidates"]
+            }
+          }
+        },
+        {
+          "name": "GET - All Candidates",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/recruitment/candidates",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "recruitment", "candidates"]
+            }
+          }
+        },
+        {
+          "name": "GET - Candidate by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/recruitment/candidates/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "recruitment", "candidates", "1"]
+            }
+          }
+        },
+        {
+          "name": "PATCH - Advance Status",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"ADVANCE\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/recruitment/candidates/1/status",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "recruitment", "candidates", "1", "status"]
+            }
+          }
+        },
+        {
+          "name": "PATCH - Reject Candidate",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"REJECT\",\n  \"reason\": \"Insufficient experience\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/recruitment/candidates/1/status",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "recruitment", "candidates", "1", "status"]
+            }
+          }
+        },
+        {
+          "name": "DELETE - Candidate",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/recruitment/candidates/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "recruitment", "candidates", "1"]
+            }
+          }
+        },
+        {
+          "name": "GET - Export CSV",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/recruitment/candidates/export/csv",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "recruitment", "candidates", "export", "csv"]
+            }
+          }
+        },
+        {
+          "name": "GET - Analytics",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/recruitment/candidates/analytics",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "recruitment", "candidates", "analytics"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

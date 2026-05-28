@@ -1,5 +1,6 @@
 package co.edu.cesde.recruitment.application.port.input;
 
+import co.edu.cesde.recruitment.application.dto.CandidateAnalyticsDto;
 import co.edu.cesde.recruitment.application.dto.CandidateCmd;
 import co.edu.cesde.recruitment.application.dto.CandidateDto;
 import co.edu.cesde.recruitment.domain.enums.CandidateStatus;
@@ -18,4 +19,10 @@ public interface CandidateServicePort {
     CandidateDto advanceStatus(Long id);
 
     CandidateDto reject(Long id, String reason);
+
+    void deleteCandidate(Long id);
+
+    byte[] exportCsv();
+
+    CandidateAnalyticsDto getAnalytics();
 }
